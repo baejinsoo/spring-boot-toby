@@ -7,6 +7,11 @@ import org.springframework.context.annotation.*;
 import org.springframework.core.type.AnnotatedTypeMetadata;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
+
 public class ConditionalTest {
     @Test
     void conditional() {
@@ -40,8 +45,19 @@ public class ConditionalTest {
 //        MyBean bean2 =  ac2.getBean(MyBean.class);
     }
 
-    @Configuration
+    @Retention(RetentionPolicy.RUNTIME)
+    @Target(ElementType.TYPE)
     @Conditional(TrueCondition.class)
+    @interface TrueConditional {}
+
+
+    @Retention(RetentionPolicy.RUNTIME)
+    @Target(ElementType.TYPE)
+    @Conditional(FalseCondition.class)
+    @interface FalseConditional {}
+
+    @Configuration
+    @TrueConditional
     static class Config1 {
         @Bean
         MyBean myBean() {
@@ -51,7 +67,7 @@ public class ConditionalTest {
     }
 
     @Configuration
-    @Conditional(FalseCondition.class)
+    @FalseConditional
     static class Config2 {
         @Bean
         MyBean myBean() {
