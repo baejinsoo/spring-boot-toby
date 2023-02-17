@@ -1,3 +1,4 @@
+jspring.config.autoconfig.PropertyPlaceholderConfig
 jspring.config.autoconfig.TomcatWebServerConfig
 jspring.config.autoconfig.JettyWebServerConfig
 jspring.config.autoconfig.DispatcherServletConfig
