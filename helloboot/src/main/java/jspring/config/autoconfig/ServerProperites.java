@@ -1,7 +1,10 @@
 package jspring.config.autoconfig;
 
-public class ServerProperites {
+import jspring.config.MyConfigurationProperties;
+import org.springframework.stereotype.Component;
 
+@MyConfigurationProperties(prefix="server")
+public class ServerProperites {
     private String contextPath;
 
     private int port;
