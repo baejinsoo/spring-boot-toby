@@ -16,7 +16,7 @@ public class HelloApiTest {
         TestRestTemplate rest = new TestRestTemplate();
 
         // ResponseEntity : web 응답의 모든 요소를 가지고 있는 object
-        ResponseEntity<String> res = rest.getForEntity("http://localhost:8080/hello?name={name}", String.class, "Spring");
+        ResponseEntity<String> res = rest.getForEntity("http://localhost:8080/app/hello?name={name}", String.class, "Spring");
 
         /* 응답 검증 */
         // status code 200
@@ -32,7 +32,7 @@ public class HelloApiTest {
         TestRestTemplate rest = new TestRestTemplate();
 
         // ResponseEntity : web 응답의 모든 요소를 가지고 있는 object
-        ResponseEntity<String> res = rest.getForEntity("http://localhost:8080/hello?name=", String.class);
+        ResponseEntity<String> res = rest.getForEntity("http://localhost:8080/app/hello?name=", String.class);
 
         /* 응답 검증 */
         // status code 500
