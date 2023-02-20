@@ -3,3 +3,4 @@ jspring.config.autoconfig.TomcatWebServerConfig
 jspring.config.autoconfig.JettyWebServerConfig
 jspring.config.autoconfig.DispatcherServletConfig
 jspring.config.autoconfig.ProperPostProcessorConfig
+jspring.config.autoconfig.DataSourceConfig
